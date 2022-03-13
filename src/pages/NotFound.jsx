@@ -1,5 +1,9 @@
-import React from 'react';
+import { Heading, Box } from '@chakra-ui/react';
 
-const NotFound = () => <div>Not Found</div>;
+const NotFound = () => {
+  <Box>
+    <Heading as="h1">Not Found</Heading>
+  </Box>;
+};
 
 export default NotFound;
