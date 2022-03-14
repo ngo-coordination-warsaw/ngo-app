@@ -12,11 +12,12 @@ import {
   Stack,
   useDisclosure,
 } from '@chakra-ui/react';
-import ROUTER_CONFIG from '../../router/routerConfig';
+import { useCategoriesContext } from '../../contexts/categoriesContext';
 
 const AppSidebar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
+  const { categories } = useCategoriesContext();
 
   return (
     <>
@@ -36,13 +37,33 @@ const AppSidebar = () => {
 
           <DrawerBody>
             <Stack>
-              {ROUTER_CONFIG.filter((el) => el.name !== 'Not Found').map(
-                ({ name, path }) => (
-                  <Link as={NavLink} key={name} to={path} onClick={onClose}>
-                    {name}
-                  </Link>
-                ),
-              )}
+              <Link
+                as={NavLink}
+                to="/"
+                _activeLink={{
+                  color: 'teal',
+                  borderBottom: '1px solid',
+                  borderColor: 'teal',
+                }}
+                onClick={onClose}
+              >
+                Categories
+              </Link>
+              {categories.map((category) => (
+                <Link
+                  key={category.Name}
+                  as={NavLink}
+                  to={`/${category.Slug}`}
+                  _activeLink={{
+                    color: 'teal',
+                    borderBottom: '1px solid',
+                    borderColor: 'teal',
+                  }}
+                  onClick={onClose}
+                >
+                  {category.Name}
+                </Link>
+              ))}
             </Stack>
           </DrawerBody>
         </DrawerContent>

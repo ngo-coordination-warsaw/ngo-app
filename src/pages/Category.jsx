@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { Box, Heading } from '@chakra-ui/react';
 import { getCategoryList } from '../api';
@@ -7,7 +7,8 @@ import CommonTable from '../components/CommonTable';
 
 const Category = () => {
   const { slug } = useParams();
-  const { response, isLoading } = useRequest(() => getCategoryList(slug));
+  const request = useCallback(() => getCategoryList(slug), [slug]);
+  const { response, isLoading } = useRequest(request);
 
   const title = useMemo(() => {
     if (!response?.data?.orgs) return 'No data';

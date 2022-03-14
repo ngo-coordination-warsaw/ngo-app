@@ -19,7 +19,7 @@ const useRequest = (request) => {
     };
 
     loadData();
-  }, []);
+  }, [request]);
 
   return { response, isLoading, error };
 };

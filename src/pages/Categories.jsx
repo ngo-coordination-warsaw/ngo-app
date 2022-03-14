@@ -1,17 +1,9 @@
-import { useMemo } from 'react';
 import { Box, SimpleGrid, Heading } from '@chakra-ui/react';
-import { getCategories } from '../api';
-import useRequest from '../hooks/useRequest';
+import { useCategoriesContext } from '../contexts/categoriesContext';
 import CategoryCard from '../layouts/CategoryCard';
 
 const Home = () => {
-  const { response } = useRequest(getCategories);
-
-  const categories = useMemo(() => {
-    if (!response?.data?.categoriesData) return [];
-
-    return response.data.categoriesData;
-  }, [response]);
+  const { categories } = useCategoriesContext();
 
   return (
     <Box>
