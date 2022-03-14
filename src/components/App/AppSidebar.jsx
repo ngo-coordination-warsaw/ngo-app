@@ -40,10 +40,11 @@ const AppSidebar = () => {
               <Link
                 as={NavLink}
                 to="/"
+                _hover={{
+                  textDecoration: 'none',
+                }}
                 _activeLink={{
                   color: 'teal',
-                  borderBottom: '1px solid',
-                  borderColor: 'teal',
                 }}
                 onClick={onClose}
               >
@@ -54,10 +55,12 @@ const AppSidebar = () => {
                   key={category.Name}
                   as={NavLink}
                   to={`/${category.Slug}`}
+                  _hover={{
+                    color: 'teal',
+                    textDecoration: 'none',
+                  }}
                   _activeLink={{
                     color: 'teal',
-                    borderBottom: '1px solid',
-                    borderColor: 'teal',
                   }}
                   onClick={onClose}
                 >

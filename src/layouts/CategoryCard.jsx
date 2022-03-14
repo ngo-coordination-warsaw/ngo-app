@@ -13,8 +13,10 @@ const CategoryCard = ({ slug, icon, name }) => {
       direction="column"
       align="center"
       cursor="pointer"
+      transition="transform 0.2s"
+      boxShadow="md"
       _hover={{
-        transform: `transateY('20px')`,
+        transform: `translateY(-10px)`,
       }}
       onClick={() => navigate(`/${slug}`)}
     >

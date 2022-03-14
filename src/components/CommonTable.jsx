@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { Box } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import DataTable from './DataTable';
 
@@ -29,7 +30,11 @@ const CommonTable = ({ data }) => {
     [],
   );
 
-  return <DataTable columns={columns} data={data} />;
+  return (
+    <Box overflowX="auto">
+      <DataTable columns={columns} data={data} />
+    </Box>
+  );
 };
 
 CommonTable.propTypes = {

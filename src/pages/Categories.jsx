@@ -11,7 +11,7 @@ const Home = () => {
         Categories
       </Heading>
 
-      <SimpleGrid columns={5} spacing={10}>
+      <SimpleGrid minChildWidth="200px" columns={5} spacing={10}>
         {categories.map((category) => (
           <CategoryCard
             key={category.Slug}
