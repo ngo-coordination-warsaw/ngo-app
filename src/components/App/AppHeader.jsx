@@ -1,6 +1,7 @@
 import { Box, Flex, Container, Link } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 import AppSidebar from './AppSidebar';
+import AppLanguageSwitcher from './AppLanguageSwitcher';
 
 const AppHeader = () => (
   <Box as="header" py={4} borderBottom="1px" borderColor="gray.200">
@@ -18,9 +19,13 @@ const AppHeader = () => (
             color: 'teal',
           }}
         >
-          Home
+          warszawa-ukraina.info
         </Link>
-        <AppSidebar />
+
+        <Flex gridColumnGap={2}>
+          <AppLanguageSwitcher />
+          <AppSidebar />
+        </Flex>
       </Flex>
     </Container>
   </Box>

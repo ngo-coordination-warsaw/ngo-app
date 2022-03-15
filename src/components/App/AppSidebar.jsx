@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   Drawer,
   DrawerBody,
@@ -18,11 +19,13 @@ const AppSidebar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
   const { categories } = useCategoriesContext();
+  const { t, i18n } = useTranslation();
+  const { resolvedLanguage } = i18n;
 
   return (
     <>
       <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
-        Menu
+        {t('menu')}
       </Button>
       <Drawer
         isOpen={isOpen}
@@ -64,7 +67,9 @@ const AppSidebar = () => {
                   }}
                   onClick={onClose}
                 >
-                  {category.Name}
+                  {resolvedLanguage === 'ua' && category.NameUA
+                    ? category.NameUA
+                    : category.Name}
                 </Link>
               ))}
             </Stack>

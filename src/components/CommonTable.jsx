@@ -1,18 +1,24 @@
 import { useMemo } from 'react';
 import { Box } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import DataTable from './DataTable';
 
 const CommonTable = ({ data }) => {
+  const { i18n } = useTranslation();
+  const { resolvedLanguage } = i18n;
+
   const columns = useMemo(
     () => [
       {
         Header: 'Name',
-        accessor: 'Name',
+        accessor: resolvedLanguage === 'ua' ? 'NameUA' : 'Name',
+        Cell: ({ value, row }) => value || row.original.Name,
       },
       {
         Header: 'Description',
-        accessor: 'Description',
+        accessor: resolvedLanguage === 'ua' ? 'DescriptionUA' : 'Description',
+        Cell: ({ value, row }) => value || row.original.Description,
       },
       {
         Header: 'Email',
@@ -27,7 +33,7 @@ const CommonTable = ({ data }) => {
         accessor: 'Address',
       },
     ],
-    [],
+    [resolvedLanguage],
   );
 
   return (
