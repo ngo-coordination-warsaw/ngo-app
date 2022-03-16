@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://51.15.81.115:8080',
+  baseURL: 'https://api.warszawa-ukraina.info',
   timeout: 30000,
 });
 
