@@ -2,25 +2,26 @@ import Categories from '../pages/Categories';
 import Category from '../pages/Category';
 import NotFound from '../pages/NotFound';
 
+const BASE_ROUTE = '/:lang';
 const ROUTER_CONFIG = [
   {
     name: 'Categories',
-    path: '/',
+    path: BASE_ROUTE,
     component: Categories,
     exact: true,
   },
   {
     name: 'Category',
-    path: '/:slug',
+    path: `${BASE_ROUTE}/:slug`,
     component: Category,
     exact: true,
   },
   {
     name: 'Not Found',
-    path: '/not-found',
+    path: `${BASE_ROUTE}/not-found`,
     component: NotFound,
     exact: false,
   },
 ];
 
-export default ROUTER_CONFIG;
+export { BASE_ROUTE, ROUTER_CONFIG };

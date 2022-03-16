@@ -42,7 +42,7 @@ const AppSidebar = () => {
             <Stack>
               <Link
                 as={NavLink}
-                to="/"
+                to={`/${resolvedLanguage}`}
                 _hover={{
                   textDecoration: 'none',
                 }}
@@ -57,7 +57,7 @@ const AppSidebar = () => {
                 <Link
                   key={category.Name}
                   as={NavLink}
-                  to={`/${category.Slug}`}
+                  to={`${resolvedLanguage}/${category.Slug}`}
                   _hover={{
                     color: 'teal',
                     textDecoration: 'none',
