@@ -21,12 +21,14 @@ i18n
         translation: {
           categories: 'Categories',
           menu: 'Menu',
+          comingSoon: 'Coming soon',
         },
       },
       ua: {
         translation: {
           categories: 'Категорії',
           menu: 'Меню',
+          comingSoon: 'Незабаром',
         },
       },
     },
